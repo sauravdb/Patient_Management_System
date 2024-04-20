@@ -9,7 +9,7 @@ public interface PatientDataService {
     public String createPatientData(PatientData patientData);
     public String updatePatientData(PatientData patientData);
     public String deletePatientData(String patientId);
-    public String getPatientData(String patientId);
+    public PatientData getPatientData(String patientId);
     public List<PatientData> getAllPatientData();
 
 }

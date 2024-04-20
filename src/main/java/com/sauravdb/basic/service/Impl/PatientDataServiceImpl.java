@@ -3,9 +3,11 @@ package com.sauravdb.basic.service.Impl;
 import com.sauravdb.basic.entity.PatientData;
 import com.sauravdb.basic.repository.PatientDataRepository;
 import com.sauravdb.basic.service.PatientDataService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PatientDataServiceImpl implements PatientDataService {
 
     public PatientDataServiceImpl(PatientDataRepository patientDataRepository) {
@@ -13,28 +15,32 @@ public class PatientDataServiceImpl implements PatientDataService {
     }
 
     PatientDataRepository patientDataRepository;
+
     @Override
     public String createPatientData(PatientData patientData) {
-        return null;
+        patientDataRepository.save(patientData);
+        return "Success";
     }
 
     @Override
     public String updatePatientData(PatientData patientData) {
-        return null;
+        patientDataRepository.save(patientData);
+        return "Success";
     }
 
     @Override
     public String deletePatientData(String patientId) {
-        return null;
+        patientDataRepository.deleteById(patientId);
+        return "Deleted";
     }
 
     @Override
-    public String getPatientData(String patientId) {
-        return null;
+    public PatientData getPatientData(String patientId) {
+        return patientDataRepository.findById(patientId).get();
     }
 
     @Override
     public List<PatientData> getAllPatientData() {
-        return null;
+        return patientDataRepository.findAll();
     }
 }
